@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Grid, Row, Alert } from 'react-bootstrap';
 import FormularioBusqueda from './FormularioBusqueda';
 import Resultados from './Resultados';
 
@@ -40,14 +41,19 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="app">
-        <FormularioBusqueda 
-          usuario={this.state.usuario}
-          incluirMiembro={this.state.incluirMiembro}
-          onBuscar={this.cambiarCriterioBusqueda.bind(this)}
-        />
+      <Grid>
+        <Row>
+          <Alert bsStyle="warning">
+            <strong>Hola</strong> Esto es un alert de bootstrap!
+          </Alert>
+          <FormularioBusqueda
+            usuario={this.state.usuario}
+            incluirMiembro={this.state.incluirMiembro}
+            onBuscar={this.cambiarCriterioBusqueda.bind(this)}
+          />
+        </Row>
         <Resultados resultados={this.state.resultados}/>
-      </div>
+      </Grid>
     );
   }
 }

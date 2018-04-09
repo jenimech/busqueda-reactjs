@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, Button, FormControl, FormGroup, Checkbox, Row } from 'react-bootstrap';
 
 class FormularioBusqueda extends Component {
     constructor(props) {
@@ -22,20 +23,25 @@ class FormularioBusqueda extends Component {
       this.setState({incluirMiembro: ev.target.checked});
     }
     render(){
-        return <form className="formulario-busqueda" onSubmit={this.handleSubmit.bind(this)}>
-          <input className="input-usuario"
-          type="text"
-          value={this.state.usuario}
-          onChange={this.handleUsuario.bind(this)}
-          />
-          <button className="formulario-submit" type="submit">Buscar</button>
-          <label className="check-miembro">
-            <input type="checkbox"
-            checked={this.state.incluirMiembro}
-            onChange={this.handleIcluirMiembro.bind(this)}/>
-            Incluir Repositorios donde el usuario es Miembro
-          </label>
-        </form>;
+        return <Form inline onSubmit={this.handleSubmit.bind(this)}>
+          <FormGroup controlId="formBasicText">
+            <Row>
+                <FormControl 
+                type="text"
+                value={this.state.usuario}
+                onChange={this.handleUsuario.bind(this)}
+                />    
+                <Button bsStyle="primary">Buscar</Button>
+            </Row>
+            <Row>
+                <Checkbox 
+                checked={this.state.incluirMiembro}
+                onChange={this.handleIcluirMiembro.bind(this)}>
+                Incluir Repositorios donde el usuario es Miembro
+                </Checkbox>
+            </Row>
+          </FormGroup>
+        </Form>;
     }
 }
 

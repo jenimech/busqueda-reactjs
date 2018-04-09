@@ -33,7 +33,7 @@ class FormularioBusqueda extends Component {
             <input type="checkbox"
             checked={this.state.incluirMiembro}
             onChange={this.handleIcluirMiembro.bind(this)}/>
-            Incluir Repocitorios donde el usuario es Miembro
+            Incluir Repositorios donde el usuario es Miembro
           </label>
         </form>;
     }
